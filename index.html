@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CopyToClipboard</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        h3{
+            color: blue;
+            font-weight: 900;
+            font-size: 30px;
+        }
+        .box{
+            text-align: center;
+        }
+        .box-2 textarea{
+            width: 500px;
+            height: 200px;
+        }
+
+        #btn{
+            cursor: pointer;
+            margin-top: 10px;
+            padding: 4px;
+            border-radius: 5px;
+            border-color: rgb(255, 255, 255);
+            color: white;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h3>COPY TO CLIPBOARD</h3>
+        <div class="box-2">
+            <textarea name="Area" id="Area"></textarea>
+        </div>
+        <button id="btn">COPY</button>
+    </div>
+
+   <script>
+    $(document).ready(function(){
+        $("#btn").click(function(){
+            // console.log("copy sucessfully");
+            let copy = $("#Area").clone().val(); 
+            navigator.clipboard.writeText(copy).then(function(){
+                alert(`${copy} .. Copied ClipBoard SucessFully`);
+            });
+        });
+    });
+   </script>
+</body>
+</html>
